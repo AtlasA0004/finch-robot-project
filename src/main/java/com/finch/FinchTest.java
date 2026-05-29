@@ -11,8 +11,23 @@ public class FinchTest{
         bird.pause(1);
 
         while(!metGoal){
-            bird.setMove("F", bird.getDistance(), 50);
-            metGoal =true;
+            
+            if(bird.getDistance() > 5){
+                bird.setMove("F", (bird.getDistance() - 4), 50);
+            }
+
+            bird.setTurn("R", 90, 50);
+            if(bird.getDistance() < 5){
+
+                bird.setTurn("L", 180, 50);
+
+                if(bird.getDistance() < 5){
+                    metGoal = true;
+                }
+
+            }
+
+
         }
 
 
